@@ -2,7 +2,7 @@ import { Phone, MapPin, Clock, Wrench, Shield, Users, Star, CreditCard, DollarSi
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 
 export default function App() {
-  function formatPhoneNumber(phoneNumberString) {
+  function formatPhoneNumber(phoneNumberString: string) {
   var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
   var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
   if (match) {
@@ -14,6 +14,7 @@ export default function App() {
   const phoneNumber = formatPhoneNumber(rawPhoneNumber);
   return (
     <div className="min-h-screen bg-white">
+      <a href="#main-content" className="sr-only focus:not-sr-only">Skip to Main Content</a>
       {/* Header */}
       <header className="bg-slate-900 text-white py-4 sticky top-0 z-50 shadow-lg border-t-4 border-red-600">
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -81,7 +82,7 @@ export default function App() {
                 <Phone className="w-10 h-10" />
                 {phoneNumber}
               </a>
-              <p className="text-center mt-4 text-sm">Open Mon-Fri 7:30 AM - 6:00 PM • Sat 8:00 AM - 4:00 PM</p>
+              <p className="text-center mt-4 text-sm">Open Mon-Fri 8:00 AM - 5:00 PM</p>
             </div>
 
             <p className="text-center text-lg">FREE Diagnosis • Same-Day Service Available</p>
@@ -94,7 +95,7 @@ export default function App() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-red-600">
-              <div className="text-5xl font-bold text-red-600 mb-2">37+</div>
+              <div className="text-5xl font-bold text-red-600 mb-2">{ new Date().getFullYear() - 1977}+ </div>
               <div className="text-slate-700 font-semibold">Years in Business</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-600">
