@@ -1,4 +1,4 @@
-# Serverless App Template
+# Fairburn road transmission service
 
 This is a monorepo containing a React frontend, AWS Lambda backend, and CloudFormation infrastructure.
 
