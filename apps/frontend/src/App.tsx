@@ -39,7 +39,7 @@ export default function App() {
       <section className="relative h-[700px] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-slate-900/90 z-10"></div>
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1632405862117-236585cfb757?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920"
+          src="https://res.cloudinary.com/dwzatjoyv/image/upload/v1779031676/copy_of_transmission_shirt_gtvihp.jpg"
           alt="Auto repair shop"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -417,6 +417,10 @@ export default function App() {
               <span className="flex items-center gap-1">
                 <CreditCard className="w-4 h-4 text-red-500" />
                 Snap Financing Available
+              </span>
+              <span className="flex items-center gap-1">
+                <CreditCard className="w-4 h-4 text-red-500" />
+                <a href="https://openlaunchworks.com/accessibility-statement" target="_blank" rel="noopener noreferrer">Accessibility Statement <span className="sr-only"> Opens a new tab</span></a>
               </span>
             </div>
           </div>
