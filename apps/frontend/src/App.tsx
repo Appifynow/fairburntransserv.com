@@ -85,7 +85,7 @@ export default function App() {
               <p className="text-center mt-4 text-sm">Open Mon-Fri 8:00 AM - 5:00 PM</p>
             </div>
 
-            <p className="text-center text-lg">FREE Diagnosis • Same-Day Service Available</p>
+            <p className="text-center text-lg">Expert Diagnosis • Same-Day Service Available</p>
           </div>
         </div>
       </section>
@@ -311,7 +311,7 @@ export default function App() {
               <Phone className="w-12 h-12" />
               {phoneNumber}
             </a>
-            <p className="mt-6 text-xl">FREE Diagnosis • Same-Day Service • Snap Financing Available</p>
+            <p className="mt-6 text-xl">Expert Diagnosis • Same-Day Service • Snap Financing Available</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -320,7 +320,7 @@ export default function App() {
                 <h3 className="text-3xl font-bold">VISIT US TODAY</h3>
               </div>
               <p className="text-xl text-slate-300 mb-8">
-                Stop by for a free diagnosis and honest assessment. No appointment needed for estimates.
+                Stop by for a diagnosis and honest assessment. No appointment needed for estimates.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start gap-4 bg-slate-800 p-4 rounded-lg border-l-4 border-red-600">
