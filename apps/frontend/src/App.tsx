@@ -1,5 +1,6 @@
 import { Phone, MapPin, Clock, Wrench, Shield, Users, Star, CreditCard, DollarSign } from 'lucide-react';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { QuoteForm } from './components/QuoteForm';
 
 export default function App() {
   function formatPhoneNumber(phoneNumberString: string) {
@@ -353,28 +354,7 @@ export default function App() {
             <div className="bg-slate-800 rounded-lg p-8 border-4 border-red-600">
               <h3 className="text-2xl mb-2 font-bold">Prefer to Request a Quote Online?</h3>
               <p className="text-slate-400 mb-6">Or just call us at {phoneNumber} for faster service!</p>
-              <form className="space-y-4">
-                <div>
-                  <label className="block mb-2 font-semibold">Your Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded bg-slate-700 border-2 border-slate-600 focus:outline-none focus:border-red-500" />
-                </div>
-                <div>
-                  <label className="block mb-2 font-semibold">Phone Number</label>
-                  <input type="tel" className="w-full px-4 py-3 rounded bg-slate-700 border-2 border-slate-600 focus:outline-none focus:border-red-500" />
-                </div>
-                <div>
-                  <label className="block mb-2 font-semibold">Vehicle Information</label>
-                  <input type="text" placeholder="Year, Make, Model" className="w-full px-4 py-3 rounded bg-slate-700 border-2 border-slate-600 focus:outline-none focus:border-red-500" />
-                </div>
-                <div>
-                  <label className="block mb-2 font-semibold">What's going on with your transmission?</label>
-                  <textarea rows={4} className="w-full px-4 py-3 rounded bg-slate-700 border-2 border-slate-600 focus:outline-none focus:border-red-500"></textarea>
-                </div>
-                <button type="submit" className="w-full bg-red-600 hover:bg-red-700 py-4 rounded-lg font-bold transition-colors text-lg">
-                  Submit Quote Request
-                </button>
-                <p className="text-center text-sm text-slate-400">We'll call you back within 1 business hour!</p>
-              </form>
+              <QuoteForm />
             </div>
           </div>
         </div>
