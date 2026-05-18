@@ -13,7 +13,6 @@ export const quoteHandler = async (
             // send an email to the site owner when a new quote request is submitted
             const quote = JSON.parse(req.body || '{}')
             console.log(quote);
-            return respond(200, { message: 'Quote request received, sending email...' });
             return sendEmail(ownerEmail, "New Quote Request", quote).then(()=>{
                 return respond(200, { message: 'Quote request sent successfully' })
             })
