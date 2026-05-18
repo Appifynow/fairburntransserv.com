@@ -12,20 +12,22 @@ Parameters:
     Default: "false"
     AllowedValues: ["true", "false"]
     Description: "Set to 'true' to enable the ACM certificate and Route 53 records."
-  ZOHOCLIENTID:
+  # ZOHOCLIENTID:
+  #   Type: String
+  #   NoEcho: true
+  # ZOHOCLIENTSECRET:
+  #   Type: String
+  #   NoEcho: true
+  # ZOHOACCESSTOKEN:
+  #   Type: String
+  # ZOHOREFRESHTOKEN:
+  #   Type: String
+  #   NoEcho: true
+  # STRIPESECRETKEY:
+  #   Type: String
+  #   NoEcho: true
+  OWNER_EMAIL:
     Type: String
-    NoEcho: true
-  ZOHOCLIENTSECRET:
-    Type: String
-    NoEcho: true
-  ZOHOACCESSTOKEN:
-    Type: String
-  ZOHOREFRESHTOKEN:
-    Type: String
-    NoEcho: true
-  STRIPESECRETKEY:
-    Type: String
-    NoEcho: true
 
 Conditions:
   EnableCustomDomain: !Equals [ !Ref UseCustomDomain, "true" ]
@@ -156,37 +158,37 @@ Resources:
 
   # --- BACKEND RESOURCES ---
 
-  DataTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      TableName: !Sub ${AWS::StackName}-data-table
-      AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: S
-      KeySchema:
-        - AttributeName: id
-          KeyType: HASH
-      BillingMode: PAY_PER_REQUEST
+  # DataTable:
+  #   Type: AWS::DynamoDB::Table
+  #   Properties:
+  #     TableName: !Sub ${AWS::StackName}-data-table
+  #     AttributeDefinitions:
+  #       - AttributeName: id
+  #         AttributeType: S
+  #     KeySchema:
+  #       - AttributeName: id
+  #         KeyType: HASH
+  #     BillingMode: PAY_PER_REQUEST
   
-  WorkerLambda:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub ${AWS::StackName}-worker
-      Handler: worker.handler
-      Runtime: nodejs20.x
-      Timeout: 60
-      CodeUri: ../apps/backend/dist/
-      Environment:
-        Variables:
-          STRIPE_SECRET_KEY: !Ref STRIPESECRETKEY
-          ZOHO_CLIENT_ID: !Ref ZOHOCLIENTID
-          ZOHO_CLIENT_SECRET: !Ref ZOHOCLIENTSECRET
-          ZOHO_ACCESS_TOKEN: !Ref ZOHOACCESSTOKEN
-          ZOHO_REFRESH_TOKEN: !Ref ZOHOREFRESHTOKEN
-          TABLE_NAME: !Ref DataTable
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref DataTable 
+  # WorkerLambda:
+  #   Type: AWS::Serverless::Function
+  #   Properties:
+  #     FunctionName: !Sub ${AWS::StackName}-worker
+  #     Handler: worker.handler
+  #     Runtime: nodejs20.x
+  #     Timeout: 60
+  #     CodeUri: ../apps/backend/dist/
+  #     Environment:
+  #       Variables:
+  #         STRIPE_SECRET_KEY: !Ref STRIPESECRETKEY
+  #         ZOHO_CLIENT_ID: !Ref ZOHOCLIENTID
+  #         ZOHO_CLIENT_SECRET: !Ref ZOHOCLIENTSECRET
+  #         ZOHO_ACCESS_TOKEN: !Ref ZOHOACCESSTOKEN
+  #         ZOHO_REFRESH_TOKEN: !Ref ZOHOREFRESHTOKEN
+  #         TABLE_NAME: !Ref DataTable
+  #     Policies:
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Ref DataTable 
 
   APIFunction:
     Type: AWS::Serverless::Function
@@ -201,21 +203,25 @@ Resources:
         AuthType: NONE
       Environment:
         Variables:
-          WORKER_ARN: !GetAtt WorkerLambda.Arn
-          DOMAIN: !Ref DomainName
-          ZOHO_CLIENT_ID: !Ref ZOHOCLIENTID
-          ZOHO_CLIENT_SECRET: !Ref ZOHOCLIENTSECRET
-          ZOHO_ACCESS_TOKEN: !Ref ZOHOACCESSTOKEN
-          ZOHO_REFRESH_TOKEN: !Ref ZOHOREFRESHTOKEN
-          STRIPE_SECRET_KEY: !Ref STRIPESECRETKEY
-          TABLE_NAME: !Ref DataTable
+          # DOMAIN: !Ref DomainName
+          # WORKER_ARN: !GetAtt WorkerLambda.Arn
+          # ZOHO_CLIENT_ID: !Ref ZOHOCLIENTID
+          # ZOHO_CLIENT_SECRET: !Ref ZOHOCLIENTSECRET
+          # ZOHO_ACCESS_TOKEN: !Ref ZOHOACCESSTOKEN
+          # ZOHO_REFRESH_TOKEN: !Ref ZOHOREFRESHTOKEN
+          # STRIPE_SECRET_KEY: !Ref STRIPESECRETKEY
+          # TABLE_NAME: !Ref DataTable
+          OWNER_EMAIL: !Ref OWNER_EMAIL 
       Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref DataTable
+        # - DynamoDBCrudPolicy:
+        #     TableName: !Ref DataTable
         - Statement:
+            # - Effect: Allow
+            #   Action: lambda:InvokeFunction
+            #   Resource: !GetAtt WorkerLambda.Arn 
             - Effect: Allow
-              Action: lambda:InvokeFunction
-              Resource: !GetAtt WorkerLambda.Arn 
+              Action: ses:SendEmail
+              Resource: "*"
 
 Outputs:
   CloudFrontURL:

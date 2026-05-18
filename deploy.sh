@@ -14,13 +14,14 @@ aws cloudformation deploy \
   --template-file packaged-template.yaml \
   --stack-name "$Site-stack" \
   --parameter-overrides \
-    UseCustomDomain=true  \
+    UseCustomDomain=false  \
     DomainName="$Site".com \
     ZOHOCLIENTID="$ZOHO_CLIENT_ID" \
     ZOHOCLIENTSECRET="$ZOHO_CLIENT_SECRET" \
     ZOHOACCESSTOKEN="$ZOHO_ACCESS_TOKEN" \
     ZOHOREFRESHTOKEN="$ZOHO_REFRESH_TOKEN" \
     STRIPESECRETKEY="$STRIPE_SECRET_KEY" \
+    OWNER_EMAIL="$OWNER_EMAIL" \
   --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
 
 

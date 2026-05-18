@@ -4,6 +4,7 @@ import { handler as stripeHander } from './stripeHandler';
 import { productsHandler } from './productsHandler';
 import { contactHandler } from './contactsHandler';
 import { stripeWebhookHandler } from './stripeWebhookHandler';
+import { quoteHandler } from './quoteHandler';
 
 
 export const handler: APIGatewayProxyHandlerV2 = async (
@@ -23,6 +24,10 @@ export const handler: APIGatewayProxyHandlerV2 = async (
   
   if(path === '/products'){
     res = await productsHandler(event, context, method as HTTPMethods).catch(e=> respond(500, e))
+  }
+  
+  if(path === '/quotes'){
+    res = await quoteHandler(event, context, method as HTTPMethods).catch(e=> respond(500, e))
   }
   
   if(path === '/contacts'){
