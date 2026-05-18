@@ -60,7 +60,7 @@ export default function App() {
      1px -5px 0 #000,
     -1px  5px 0 #000,
      1px  5px 0 #000`
-              }} className="text-5xl text-red-600 font-bold">Fairburn Transmission Service</h2>
+              }} className="text-5xl text-red-600 font-bold">Fairburn Rd Transmission & Auto Service</h2>
             </div>
             <p className="text-2xl mb-6 text-white font-semibold">
               Three generations of honest, reliable service. Your neighbors, your friends, your transmission experts.
@@ -68,7 +68,7 @@ export default function App() {
             <div className="flex gap-4 mb-8 flex-wrap">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
                 <Shield className="w-6 h-6 text-red-500" />
-                <span>Lifetime Warranty</span>
+                <span>Work is Guaranteed</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
                 <Users className="w-6 h-6 text-red-500" />
@@ -193,6 +193,7 @@ export default function App() {
                       <span>Apply online or in-store</span>
                     </li>
                   </ul>
+                  learn more about <a href="https://www.snapfinance.com/" target="_blank" className="text-blue-400 hover:underline">snap financing </a>.
                 </div>
               </div>
               <div className="text-center md:text-left">
@@ -230,8 +231,11 @@ export default function App() {
                 <h2 className="text-4xl font-bold text-white">FAMILY TRADITION</h2>
               </div>
               <p className="text-lg text-slate-700 mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis pharetra mauris nec sollicitudin. Nulla convallis turpis euismod sagittis condimentum. In non pellentesque tortor. Duis lacinia, magna a faucibus ultricies, lectus augue tincidunt risus, vitae venenatis ex mauris at magna. Maecenas euismod est sit amet lacus consectetur sollicitudin. Vestibulum interdum sapien ante, vitae volutpat diam maximus vel. Suspendisse in risus leo. Integer id dui id nulla faucibus mollis vitae cursus ligula. Morbi nec leo in ante aliquet fermentum.
-              </p>
+              For nearly half a century, our shop has been Douglasville’s trusted source for expert transmission repair and dependable auto care. With <strong>49 years of experience </strong>, we’ve built our reputation on honesty, quality workmanship, and a commitment to keeping our community safely on the road. Whether you’re dealing with slipping gears, strange noises, or routine maintenance needs, our team has the knowledge and tools to diagnose and repair your vehicle with precision.
+
+While we’re known as <strong>Fairburn’s local transmission specialists</strong>, our expertise goes far beyond drivetrain work. We provide <strong>full-service auto repair</strong>, including brakes, engine diagnostics, suspension, tune-ups, and preventative maintenance—everything your vehicle needs to stay reliable for the long haul. No matter the make or model, we deliver dealership‑level service without the dealership price.
+
+If you’re looking for <strong>reliable, affordable, and experienced auto care</strong>, you’re in the right place. Contact us today to schedule service or get a free estimate—your car will be in the hands of Douglasville’s most trusted professionals.</p>
               <p className="text-lg text-slate-700 mb-4">
                 We treat every customer like family because in our small community, many of you are. We've repaired transmissions for multiple generations of families, and that trust means everything to us.
               </p>
@@ -366,7 +370,7 @@ export default function App() {
           <div className="text-center mb-6">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Wrench className="w-10 h-10 text-red-600" />
-              <h3 className="text-2xl font-bold">Fairburn Transmission Service</h3>
+              <h3 className="text-2xl font-bold">Fairburn Rd Transmission & Auto Service</h3>
             </div>
             <div className="bg-red-600 inline-block px-6 py-3 mb-4">
               <a href={`tel:${rawPhoneNumber}`} className="text-3xl font-bold hover:text-slate-200 flex items-center gap-3">
@@ -376,7 +380,7 @@ export default function App() {
             </div>
           </div>
           <div className="text-center text-slate-300">
-            <p className="text-lg mb-2">&copy; {new Date().getFullYear()} Fairburn Transmission Service</p>
+            <p className="text-lg mb-2">&copy; {new Date().getFullYear()} Fairburn Rd Transmission & Auto Service</p>
             <p className="mb-4">Proudly Serving Our Community Since 1977</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <span className="flex items-center gap-1">
@@ -408,6 +412,7 @@ export default function App() {
             powered by <a href="https://openlaunchworks.com" target="_blank" rel="noopener noreferrer" >openlaunchworks <span className="sr-only"> Opens a new tab</span></a>
           </div>
         </div>
+        <img style={{ width: '100px'}} src="https://media.secondstreetapp.com/7311937" alt="Best of Douglasville 2026" />
       </footer>
     </div>
   );
