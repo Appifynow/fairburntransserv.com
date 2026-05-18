@@ -14,6 +14,7 @@ export const QuoteForm = () => {
     };
     return (
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+          {error && <p className="text-red-500 text-sm mb-4">An error occurred while submitting your quote request. Please try again later.</p>}
                 <div>
                   <label className="block mb-2 font-semibold">
                     Your Name
