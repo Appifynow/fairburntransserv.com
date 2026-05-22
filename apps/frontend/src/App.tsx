@@ -1,6 +1,7 @@
 import { Phone, MapPin, Clock, Wrench, Shield, Users, Star, CreditCard, DollarSign } from 'lucide-react';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { QuoteForm } from './components/QuoteForm';
+import { StaticMap } from './components/StaticMap';
 
 export default function App() {
   function formatPhoneNumber(phoneNumberString: string) {
@@ -15,7 +16,6 @@ export default function App() {
   const phoneNumber = formatPhoneNumber(rawPhoneNumber);
   return (
     <div className="min-h-screen bg-white">
-      <a href="#main-content" className="sr-only focus:not-sr-only">Skip to Main Content</a>
       {/* Header */}
       <header className="bg-slate-900 text-white py-4 sticky top-0 z-50 shadow-lg border-t-4 border-red-600">
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -29,43 +29,43 @@ export default function App() {
               <p className="text-sm text-slate-300">Proudly Serving Our Community Since 1977</p>
             </div>
           </div>
-          <a href={`tel:${rawPhoneNumber}`} className="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-colors font-bold flex items-center gap-2">
+          <a href={`tel:${rawPhoneNumber}`} className="hidden md:block bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-colors font-bold flex items-center gap-2">
             <Phone className="w-5 h-5" />
             Call Now
           </a>
         </div>
       </header>
-
+    <main>
       {/* Hero Section */}
       <section className="relative h-[700px] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-slate-900/90 z-10"></div>
         <ImageWithFallback
           src="https://res.cloudinary.com/dwzatjoyv/image/upload/v1779031676/copy_of_transmission_shirt_gtvihp.jpg"
-          alt="Auto repair shop"
+          alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute top-4 right-4 z-20 opacity-20">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1499696562547-dbe51006e1bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
-            alt="American flag"
+            alt=""
             className="w-32 h-32 object-cover rounded-lg"
           />
         </div>
         <div className="container mx-auto px-4 z-20 text-white">
           <div className="max-w-2xl">
             <div className=" inline-block px-6 py-3 mb-4">
-              <h2 style={{
+              <h1 style={{
                 textShadow: 
     `-1px -5px 0 #000,  
      1px -5px 0 #000,
     -1px  5px 0 #000,
      1px  5px 0 #000`
-              }} className="text-5xl text-red-600 font-bold">Fairburn Rd Transmission & Auto Service</h2>
+              }} className="text-5xl text-red-600 font-bold">Fairburn Rd Transmission & Auto Service</h1>
             </div>
             <p className="text-2xl mb-6 text-white font-semibold">
               Three generations of honest, reliable service. Your neighbors, your friends, your transmission experts.
             </p>
-            <div className="flex gap-4 mb-8 flex-wrap">
+            <div className="hidden md:flex gap-4 mb-8 flex-wrap">
               <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
                 <Shield className="w-6 h-6 text-red-500" />
                 <span>Work is Guaranteed</span>
@@ -80,7 +80,7 @@ export default function App() {
             <div className="bg-red-600 p-8 rounded-lg border-4 border-white shadow-2xl mb-6">
               <p className="text-lg mb-4 font-semibold">CALL US NOW FOR IMMEDIATE ASSISTANCE</p>
               <a href={`tel:${rawPhoneNumber}`} className="flex items-center justify-center gap-3 bg-white text-red-600 hover:bg-slate-100 px-8 py-6 rounded-lg text-3xl font-bold transition-colors">
-                <Phone className="w-10 h-10" />
+                <Phone className="hidden md:block w-10 h-10" />
                 {phoneNumber}
               </a>
               <p className="text-center mt-4 text-sm">Open Mon-Fri 8:00 AM - 5:00 PM</p>
@@ -313,7 +313,7 @@ If you’re looking for <strong>reliable, affordable, and experienced auto care<
             <h2 className="text-5xl font-bold mb-4">CALL US NOW!</h2>
             <p className="text-2xl mb-6">Speak Directly with a Transmission Expert</p>
             <a href={`tel:${rawPhoneNumber}`} className="inline-flex items-center gap-4 bg-white text-red-600 hover:bg-slate-100 px-12 py-6 rounded-lg text-4xl font-bold transition-colors shadow-2xl">
-              <Phone className="w-12 h-12" />
+              <Phone className="hidden md:block w-12 h-12" />
               {phoneNumber}
             </a>
             <p className="mt-6 text-xl">Expert Diagnosis • Same-Day Service • Snap Financing Available</p>
@@ -355,7 +355,8 @@ If you’re looking for <strong>reliable, affordable, and experienced auto care<
                 </div>
               </div>
             </div>
-            <div className="bg-slate-800 rounded-lg p-8 border-4 border-red-600">
+            <StaticMap />
+            <div className="hidden bg-slate-800 rounded-lg p-8 border-4 border-red-600">
               <h3 className="text-2xl mb-2 font-bold">Prefer to Request a Quote Online?</h3>
               <p className="text-slate-400 mb-6">Or just call us at {phoneNumber} for faster service!</p>
               <QuoteForm />
@@ -363,6 +364,7 @@ If you’re looking for <strong>reliable, affordable, and experienced auto care<
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-12 border-t-4 border-red-600">
