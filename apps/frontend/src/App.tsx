@@ -130,7 +130,7 @@ export default function App() {
               },
               {
                 title: 'Transmission Rebuild',
-                description: 'Complete transmission rebuilds with OEM parts and our lifetime warranty.',
+                description: 'Complete transmission rebuilds with OEM parts.',
                 icon: Shield
               },
               {
@@ -397,7 +397,7 @@ If you’re looking for <strong>reliable, affordable, and experienced auto care<
               <span className="text-slate-500">•</span>
               <span className="flex items-center gap-1">
                 <Shield className="w-4 h-4 text-red-500" />
-                Lifetime Warranty on Rebuilds
+                Warranty on Rebuilds
               </span>
               <span className="text-slate-500">•</span>
               <span className="flex items-center gap-1">
