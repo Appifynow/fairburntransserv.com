@@ -29,7 +29,7 @@ export default function App() {
               <p className="text-sm text-slate-300">Proudly Serving Our Community Since 1977</p>
             </div>
           </div>
-          <a href={`tel:${rawPhoneNumber}`} className="hidden md:block bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-colors font-bold flex items-center gap-2">
+          <a href={`tel:${rawPhoneNumber}`} className="hidden md:flex bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg transition-colors font-bold flex items-center gap-2">
             <Phone className="w-5 h-5" />
             Call Now
           </a>
