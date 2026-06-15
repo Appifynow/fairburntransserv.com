@@ -38,7 +38,7 @@ export default function App() {
     <main>
       {/* Hero Section */}
       <section className="relative h-[700px] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-slate-900/90 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/55 to-slate-900/90 z-10"></div>
         <ImageWithFallback
           src="https://res.cloudinary.com/dwzatjoyv/image/upload/v1779031676/copy_of_transmission_shirt_gtvihp.jpg"
           alt=""
@@ -83,6 +83,11 @@ export default function App() {
                 <Phone className="hidden md:block w-10 h-10" />
                 {phoneNumber}
               </a>
+              <div>
+                  <div>
+                    <p className="text--300">8521 Hospital Dr Douglasville, GA 30134</p>
+                  </div>
+                </div>
               <p className="text-center mt-4 text-sm">Open Mon-Fri 8:00 AM - 5:00 PM</p>
             </div>
 

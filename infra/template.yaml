@@ -190,38 +190,38 @@ Resources:
   #       - DynamoDBCrudPolicy:
   #           TableName: !Ref DataTable 
 
-  APIFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub ${AWS::StackName}-function
-      Runtime: nodejs20.x
-      Handler: index.handler
-      CodeUri: ../apps/backend/dist/
-      Layers:
-        - !ImportValue CommonLayerArn
-      FunctionUrlConfig:
-        AuthType: NONE
-      Environment:
-        Variables:
-          # DOMAIN: !Ref DomainName
-          # WORKER_ARN: !GetAtt WorkerLambda.Arn
-          # ZOHO_CLIENT_ID: !Ref ZOHOCLIENTID
-          # ZOHO_CLIENT_SECRET: !Ref ZOHOCLIENTSECRET
-          # ZOHO_ACCESS_TOKEN: !Ref ZOHOACCESSTOKEN
-          # ZOHO_REFRESH_TOKEN: !Ref ZOHOREFRESHTOKEN
-          # STRIPE_SECRET_KEY: !Ref STRIPESECRETKEY
-          # TABLE_NAME: !Ref DataTable
-          OWNER_EMAIL: !Ref OWNER_EMAIL 
-      Policies:
-        # - DynamoDBCrudPolicy:
-        #     TableName: !Ref DataTable
-        - Statement:
-            # - Effect: Allow
-            #   Action: lambda:InvokeFunction
-            #   Resource: !GetAtt WorkerLambda.Arn 
-            - Effect: Allow
-              Action: ses:SendEmail
-              Resource: "*"
+  # APIFunction:
+  #   Type: AWS::Serverless::Function
+  #   Properties:
+  #     FunctionName: !Sub ${AWS::StackName}-function
+  #     Runtime: nodejs20.x
+  #     Handler: index.handler
+  #     CodeUri: ../apps/backend/dist/
+  #     Layers:
+  #       - !ImportValue CommonLayerArn
+  #     FunctionUrlConfig:
+  #       AuthType: NONE
+  #     Environment:
+  #       Variables:
+  #         DOMAIN: !Ref DomainName
+  #         WORKER_ARN: !GetAtt WorkerLambda.Arn
+  #         ZOHO_CLIENT_ID: !Ref ZOHOCLIENTID
+  #         ZOHO_CLIENT_SECRET: !Ref ZOHOCLIENTSECRET
+  #         ZOHO_ACCESS_TOKEN: !Ref ZOHOACCESSTOKEN
+  #         ZOHO_REFRESH_TOKEN: !Ref ZOHOREFRESHTOKEN
+  #         STRIPE_SECRET_KEY: !Ref STRIPESECRETKEY
+  #         TABLE_NAME: !Ref DataTable
+  #         OWNER_EMAIL: !Ref OWNER_EMAIL 
+  #     Policies:
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Ref DataTable
+  #       - Statement:
+  #           - Effect: Allow
+  #             Action: lambda:InvokeFunction
+  #             Resource: !GetAtt WorkerLambda.Arn 
+  #           - Effect: Allow
+  #             Action: ses:SendEmail
+  #             Resource: "*"
 
 Outputs:
   CloudFrontURL:
@@ -235,5 +235,5 @@ Outputs:
     Condition: EnableCustomDomain
     Value: !Join [", ", !GetAtt WebsiteHostedZone.NameServers]
   
-  LambdaAPIUrl:
-    Value: !GetAtt APIFunctionUrl.FunctionUrl
+  # LambdaAPIUrl:
+  #   Value: !GetAtt APIFunctionUrl.FunctionUrl
